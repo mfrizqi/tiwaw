@@ -79,28 +79,6 @@ TestSet.to_csv (r'D:\Code\python\pandas\Exercise\TestSet.csv',index=False, heade
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # ============================
 # print("Mordred : " , dtMor.iloc[1].name) #gets all on row 
 # print("Padel : " , dtPadel.iloc[1].Name) #gets all on row 0

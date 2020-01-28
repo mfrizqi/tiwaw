@@ -9,11 +9,16 @@ import numpy as np
 pd.set_option('display.max_column', 3778)
 
 dtTrain = pd.read_csv("TrainSet.csv")
-# dtHeadCdk = dtCdk.columns.values #get all CDK columns name
-
 dt = pd.read_csv("padel_desc.csv")
-# dtHeadCdk = dtCdk.columns.values #get all CDK columns name
 
+# def simValueInt(dataframe):
+#     for header in range(0,3777):
+
+#         print("")
+
+
+### STEP 1.1 Similarities by === (EQUAL)
 
 # print (dtTrain)
-print(dt)
+print(dtTrain[0].name)
+# print("Mordred : " , dtMor.iloc[1].name) #gets all on row 
