@@ -73,8 +73,8 @@ print(TestSet)
 
 #EXPORT TRAIN&TEST SET TO CSV
 
-TrainSet.to_csv (r'D:\Code\python\pandas\Exercise\TrainSet.csv',index=False, header=True, sep=',') #Don't forget to add '.csv' at the end of the path
-TestSet.to_csv (r'D:\Code\python\pandas\Exercise\TestSet.csv',index=False, header=True,sep=',')
+# TrainSet.to_csv (r'D:\Code\python\pandas\Exercise\TrainSet.csv',index=False, header=True, sep=',') #Don't forget to add '.csv' at the end of the path
+# TestSet.to_csv (r'D:\Code\python\pandas\Exercise\TestSet.csv',index=False, header=True,sep=',')
 
 
 

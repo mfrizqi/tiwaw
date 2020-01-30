@@ -20,5 +20,8 @@ dt = pd.read_csv("padel_desc.csv")
 ### STEP 1.1 Similarities by === (EQUAL)
 
 # print (dtTrain)
-print(dtTrain[0].name)
-# print("Mordred : " , dtMor.iloc[1].name) #gets all on row 
+# print(dtTrain[0].name)
+print(dt.iloc[0].Ts) # iloc : Gets row on index 0
+print(dtTrain.iloc[0].AMR)
+# print(dt.Name.head())
+# print("Padel : " , dt.iloc[1].ALogP) #gets all on row 
