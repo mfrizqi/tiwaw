@@ -26,8 +26,9 @@ def similarValue(dataframe):
                 duplicate += 1
         # print(duplicate)
         dupList.append(duplicate)
-    print("Duplicate : " , dupList)
 
+def getIndexTitle(list):
+    print(list)
 
 ### STEP 1.1 Similarities by === (EQUAL)
 
@@ -44,9 +45,10 @@ def similarValue(dataframe):
 #Loop through Title Column(Head)
 dupList = []
 similarValue(dtTrain)
-# print(dtTrain)
+getIndexTitle(dupList)
+# print("Duplicate : " , dupList)
 
-# # print (dtTrain)
+
 # # print(dtTrain[0].name)
 # print(dt.iloc[0].Ts) # iloc : Gets row on index 0
 # print(dtTrain.iloc[0].AMR)
