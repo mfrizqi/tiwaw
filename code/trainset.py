@@ -1,5 +1,6 @@
 import csv 
 import pandas as pd
+from collections import Counter
 import numpy as np
 
 #STEP 1 : COUNT ALL SIMILARITIES IN 1 ROW
@@ -11,20 +12,39 @@ pd.set_option('display.max_column', 3778)
 dtTrain = pd.read_csv("data/TrainSetNoId.csv")
 dtCdk = pd.read_csv("data/cdk_desc.csv", delimiter=' ')
 
-# def simValueInt(dataframe):
-#     for header in range(0,3777):
-
-#         print("")
+def similarValue(dataframe):
+    for j in range(0,3775):
+        # Get modus value from j column
+        topEl = max(dtTrain.iloc[:,j])
+        # print("Modus :  ", topEl)
+        duplicate = 0
+        # Loop comparing each row with modus
+        for i in range(0,74):
+            # print(i, dtTrain.iloc[i,j])
+            comp = dtTrain.iloc[i,j]
+            if comp == topEl:
+                duplicate += 1
+        # print(duplicate)
+        dupList.append(duplicate)
+    print("Duplicate : " , dupList)
 
 
 ### STEP 1.1 Similarities by === (EQUAL)
 
 #print all values on index 0
-print(type(dtTrain.iloc[0]))
-print(type(dtCdk.columns.values[10]))
+# print(dtTrain.iloc[0])
 
 # print all row on index 0
-# print(dtTrain.iloc[:,0])
+# print(max(dtTrain.iloc[:,0]))
+# print (dtTrain.iloc[0,0])
+
+# for key,value in dtTrain.iteritems():
+#    print (key,value)
+
+#Loop through Title Column(Head)
+dupList = []
+similarValue(dtTrain)
+# print(dtTrain)
 
 # # print (dtTrain)
 # # print(dtTrain[0].name)

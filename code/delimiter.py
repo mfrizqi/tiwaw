@@ -5,16 +5,16 @@ import numpy as np
 print('Hello Enjel!')
 
 # with pandas
-dtCdk = pd.read_csv("cdk_desc.csv", delimiter=' ')
+dtCdk = pd.read_csv("data/cdk_desc.csv", delimiter=' ')
 dtHeadCdk = dtCdk.columns.values #get all CDK columns name
 
-dtMor = pd.read_csv("mordred_desc.csv")
+dtMor = pd.read_csv("data/mordred_desc.csv")
 dtHeadMor = dtMor.columns.values #get all CDK columns name
 
-dtPadel = pd.read_csv("padel_desc.csv")
+dtPadel = pd.read_csv("data/padel_desc.csv")
 dtHeadPad = dtPadel.columns.values #get all CDK columns name
 
-dtRawIC50 = pd.read_csv("pIC50_target.csv")
+dtRawIC50 = pd.read_csv("data/pIC50_target.csv")
 dtIC50 = dtRawIC50['pIC50']
 
 def last(self,n):
