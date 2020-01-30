@@ -3,16 +3,16 @@ import pandas as pd
 import numpy as np
 
 # with pandas
-dtCdk = pd.read_csv("cdk_desc.csv", delimiter=' ')
+dtCdk = pd.read_csv("data/cdk_desc.csv", delimiter=' ')
 dtColCdk = dtCdk.columns.values #get all CDK columns name
 
-dtMor = pd.read_csv("mordred_desc.csv")
+dtMor = pd.read_csv("data/mordred_desc.csv")
 dtColMor = dtMor.columns.values #get all CDK columns name
 
-dtPadel = pd.read_csv("padel_desc.csv")
+dtPadel = pd.read_csv("data/padel_desc.csv")
 dtColPad = dtPadel.columns.values #get all CDK columns name
 
-dtRawIC50 = pd.read_csv("pIC50_target.csv")
+dtRawIC50 = pd.read_csv("data/pIC50_target.csv")
 dtIC50 = dtRawIC50['pIC50']
 
 cdkFirst = dtCdk.loc[:,(dtColCdk[0])]
@@ -29,6 +29,8 @@ del mixedData[(dtColPad[0])]
 
 completeData = pd.concat([mixedFirst,mixedData],axis = 1)
 
+completeData.to_csv (r'D:\Perkuliahan\SEMESTER 8\tiwaw\code\completeData.csv',index=False, header=True, sep=',') #Don't forget to add '.csv' at the end of the path
+
 # print(completeData.iloc[:,0:3778])
 # print (completeData.iloc[92].pIC50)
 
@@ -43,3 +45,5 @@ completeData = pd.concat([mixedFirst,mixedData],axis = 1)
 
 # print(dtCdk.loc[:,(dtColCdk[0])])
 # print(dtCdk.loc[2,(dtColCdk[0])])
+
+print(completeData.loc[:,'Wgamma1.unity'])

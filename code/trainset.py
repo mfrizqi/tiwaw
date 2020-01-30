@@ -6,67 +6,68 @@ import numpy as np
 #STEP 1 : COUNT ALL SIMILARITIES IN 1 ROW
 #STEP 2 : IF COUNTED SIMILARITIES MORE THAN 37, DELETE COLUMN
 
-pd.set_option('display.max_row', 100)
-# pd.set_option('display.max_column', 3778)
+pd.set_option('display.max_row', 3778)
+pd.set_option('display.max_column', 3778)
 
 dtTrain = pd.read_csv("data/TrainSetNoId.csv")
+dtTrainRaw = dtTrain
 dtCdk = pd.read_csv("data/cdk_desc.csv", delimiter=' ')
 
 def similarValue(dframe):
-    duplist = []
+    colList = []
     for j in range(0,3775):
         # Get modus value from j column
         topEl = stat.mode(dframe.iloc[:,j])
-        # print("Modus :  ", topEl)
         duplicate = 0
         # Loop comparing each row with modus
         for i in range(0,74):
-            # print(i, dtTrain.iloc[i,j])
             comp = dframe.iloc[i,j]
             if comp == topEl:
                 duplicate += 1
-        # print(duplicate)
         if duplicate >= 37 :
-            duplist.append(j)    
-    return duplist
+            colList.append(j)    
+    return colList
+
+def stdDeviation(dframe):
+    stdevList = []
+    # sample = dframe.iloc[:,1]
+    sample = dframe.columns.values
+    # sample = dframe.loc['ATSv6']
+    print(sample)
+    # for j in range(0,len(dframe)):
+    #     # Loop search standard deviation each column
+    #     stddev = 0
+    #     sample = dframe.iloc[:,j]
+    #     print(sample)
+    #     stddev = stat.stdev(sample)
+    #     print(dframe.columns[j], stddev)
+    #     if stddev <= 0.95 :
+    #         stdevList.append(j)
+    return stdevList
 
 def dropColumn(dframe, tList):
     dropped = pd.DataFrame()
-    # for i in range(0,len(tList)):
-    #     dropMe = dframe.columns.values[tList[i]]
-    #     del dframe[(dropMe)]
     dropped = dframe.drop(dframe.columns[tList], axis=1)
-    # dropped = dframe
-    # print(dropped)
     return dropped
 
-#print all values on index 0
-# print(dtTrain.iloc[0])
 
-# print all row on index 0
-# print(max(dtTrain.iloc[:,0]))
-# print (dtTrain.iloc[0,0])
-
-# for key,value in dtTrain.iteritems():
-#    print (key,value)
-
-#Loop through Title Column(Head)
+#Create Duplicate List
 dupList = []
 
-### STEP 1 Similarities by === (EQUAL)
-# print(dtTrain.iloc[:,0:3])
+##### STEP 1 Reduces similarity
 simValList = similarValue(dtTrain)
-# print(type(simValList))
 dtSimVal = dropColumn(dtTrain,simValList)
-
-# print(simValList[0])
-print(type(simValList))
-print(dtTrain)
-print("=================================")
+print("================ REDUCED: SIMILARITY VALUES (", len(simValList)," Columns) =================")
 print(dtSimVal)
-# print(simValList)
-# print(dtTrain.columns.values[simValList[1]])
-print(len(simValList))
+
+##### STEP 2 Reduce columns by Standard Deviation
+
+
+
+sdList = stdDeviation(dtSimVal)
+print(len(dtSimVal.columns))
+# print(dtTrainRaw.iloc[:,1])
+# print(sdList)
 
 # print(max(dtSimVal.iloc[:,2]))
 # print(dtTrain.columns.values[simValList[688]])
