@@ -3,16 +3,16 @@ import pandas as pd
 import numpy as np
 
 # with pandas
-dtCdk = pd.read_csv("cdk_desc.csv", delimiter=' ')
+dtCdk = pd.read_csv("data/cdk_desc.csv", delimiter=' ')
 dtColCdk = dtCdk.columns.values #get all CDK columns name
 
-dtMor = pd.read_csv("mordred_desc.csv")
+dtMor = pd.read_csv("data/mordred_desc.csv")
 dtColMor = dtMor.columns.values #get all CDK columns name
 
-dtPadel = pd.read_csv("padel_desc.csv")
+dtPadel = pd.read_csv("data/padel_desc.csv")
 dtColPad = dtPadel.columns.values #get all CDK columns name
 
-dtRawIC50 = pd.read_csv("pIC50_target.csv")
+dtRawIC50 = pd.read_csv("data/pIC50_target.csv")
 dtIC50 = dtRawIC50['pIC50']
 
 def last(self,n):
@@ -71,17 +71,17 @@ TestSet = mixData.drop(idxList)
 
 #CHECK BOTH DATAFRAME
 print("----- TRAIN SET -----")
-print(TrainSet)
+print(TrainSet.iloc[:,-1])
 print("")
 print("")
 print("")
 print("----- TRAIN SET -----")
-print(TestSet)
+# print(TestSet)
 
 #EXPORT TRAIN&TEST SET TO CSV
 
-TrainSet.to_csv (r'D:\Code\python\pandas\Exercise\TrainSetNoId.csv',index=False, header=True, sep=',') #Don't forget to add '.csv' at the end of the path
-TestSet.to_csv (r'D:\Code\python\pandas\Exercise\TestSetNoId.csv',index=False, header=True,sep=',')
+# TrainSet.to_csv (r'D:\Code\python\pandas\Exercise\TrainSetNoId.csv',index=False, header=True, sep=',') #Don't forget to add '.csv' at the end of the path
+# TestSet.to_csv (r'D:\Code\python\pandas\Exercise\TestSetNoId.csv',index=False, header=True,sep=',')
 
 
 
