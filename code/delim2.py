@@ -66,17 +66,19 @@ idxList = ( list(TrainSet.index.values))
 
 # print (TestSet)
 
+print(mixData)
+
 # GET TEST SET BY DROP ROWS BASED TRAINSET ROWS
 TestSet = mixData.drop(idxList)
 
 #CHECK BOTH DATAFRAME
 print("----- TRAIN SET -----")
-print(TrainSet.iloc[:,-1])
+print(TrainSet)
 print("")
 print("")
 print("")
 print("----- TRAIN SET -----")
-# print(TestSet)
+print(TestSet)
 
 #EXPORT TRAIN&TEST SET TO CSV
 
